@@ -8,7 +8,8 @@ module.exports = function (grunt) {
   grunt.initConfig({
     shell: {
       browserify: {
-        command: "./node_modules/.bin/browserify  -e src/adapters/jquery.js  -i 'jsdom' -g varify > dist/fhir-client-jquery.js; ./node_modules/.bin/browserify  -e src/adapters/angularjs.js  -i 'jsdom' -g varify > dist/fhir-client-angularjs.js; ./node_modules/.bin/browserify  -e src/adapters/bundle.js  -i 'jsdom' -g varify > dist/fhir-client.js",
+        command: "browserify -e src/adapters/isomorphic-fetch.js > dist/fhir-client-isomorphic-fetch.js",
+        // command: "./node_modules/.bin/browserify  -e src/adapters/jquery.js  -i 'jsdom' -g varify > dist/fhir-client-jquery.js; ./node_modules/.bin/browserify  -e src/adapters/angularjs.js  -i 'jsdom' -g varify > dist/fhir-client-angularjs.js; ./node_modules/.bin/browserify  -e src/adapters/bundle.js  -i 'jsdom' -g varify > dist/fhir-client.js",
         options: {
           failOnError: true,
           stderr: true
@@ -18,9 +19,10 @@ module.exports = function (grunt) {
     uglify: {
       minifiedLib: {
         files: {
-          'dist/fhir-client-jquery.min.js': ['dist/fhir-client-jquery.js'],
-          'dist/fhir-client-angularjs.min.js': ['dist/fhir-client-angularjs.js'],
-          'dist/fhir-client.min.js': ['dist/fhir-client.js']
+          'dist/fhir-client-isomorphic-fetch.min.js': ['dist/fhir-client-isomorphic-fetch.js']
+		  // 'dist/fhir-client-jquery.min.js': ['dist/fhir-client-jquery.js'],
+          // 'dist/fhir-client-angularjs.min.js': ['dist/fhir-client-angularjs.js'],
+          // 'dist/fhir-client.min.js': ['dist/fhir-client.js']
         }
       }
     }

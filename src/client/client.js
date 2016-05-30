@@ -19,7 +19,6 @@ function FhirClient(p) {
 
     var client = new ClientPrototype();
     var fhir = Adapter.get().fhirjs;
-
     var server = client.server = {
       serviceUrl: p.serviceUrl,
       auth: p.auth || {type: 'none'}
